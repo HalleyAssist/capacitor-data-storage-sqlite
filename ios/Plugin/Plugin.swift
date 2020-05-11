@@ -61,6 +61,7 @@ public class CapacitorDataStorageSqlite: CAPPlugin {
                 "result": false,
                 "message": "Error: \(error)"
             ])
+            return
         }
         if !mDb!.isOpen {
             call.resolve([
