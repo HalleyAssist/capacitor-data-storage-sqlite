@@ -5,7 +5,7 @@ declare module "@capacitor/core" {
 }
 
 export interface CapacitorDataStorageSqlitePlugin {
-  echo(options: { value: string }): Promise<{value: string}>;
+  echo(options: { value: string }): Promise<{ value: string }>;
   /**
    * Open a store
    * @param {capOpenStorageOptions} options {database: string, table: string}
@@ -46,7 +46,7 @@ export interface CapacitorDataStorageSqlitePlugin {
    * @param {capDataStorageOptions} options {key:"foo"}
    * @returns {Promise<capDataStorageResult>} {result:boolean}
    */
-  iskey(options: capDataStorageOptions): Promise<capDataStorageResult>; 
+  iskey(options: capDataStorageOptions): Promise<capDataStorageResult>;
   /**
    * Get the data key list
    * @returns {Promise<capDataStorageResult>} {keys:Array<string>}
@@ -75,23 +75,23 @@ export interface capOpenStorageOptions {
    * The storage database name
    */
   database?: string;  // default: 
-                      //  ios, android: storageSQLite
-                      //  web : storageIDB
+  //  ios, android: storageSQLite
+  //  web : storageIDB
   /**
    * The storage table name
    */
   table?: string;   // default:
-                    //  ios, android: storage_table
-                    //  web: storage_store
+  //  ios, android: storage_table
+  //  web: storage_store
   /**
    * Set to true for database encryption
    */
   encrypted?: boolean;  // only for ios and android
   /***
-   * Set the mode for database ancryption
-   * ["encryption", "secret","newsecret"]
+   * Set the mode for database encryption
+   * ["no-encryption", "secret", "newsecret"]
    */
-  mode?: string // only for ios and android
+  mode?: "no-encryption" | "secret" | "newsecret" // only for ios and android
 
 }
 export interface capDataStorageOptions {
@@ -125,7 +125,7 @@ export interface capDataStorageResult {
   /**
    * the data keys/values list as an Array of {key:string,value:string}
    */
-  keysvalues?: Array<any>;
+  keysvalues?: Array<{ key: string; value: string }>;
   /**
    * a message
    */

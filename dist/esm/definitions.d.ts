@@ -86,10 +86,10 @@ export interface capOpenStorageOptions {
      */
     encrypted?: boolean;
     /***
-     * Set the mode for database ancryption
-     * ["encryption", "secret","newsecret"]
+     * Set the mode for database encryption
+     * ["no-encryption", "secret", "newsecret"]
      */
-    mode?: string;
+    mode?: "no-encryption" | "secret" | "newsecret";
 }
 export interface capDataStorageOptions {
     /**
@@ -121,7 +121,10 @@ export interface capDataStorageResult {
     /**
      * the data keys/values list as an Array of {key:string,value:string}
      */
-    keysvalues?: Array<any>;
+    keysvalues?: Array<{
+        key: string;
+        value: string;
+    }>;
     /**
      * a message
      */
