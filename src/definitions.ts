@@ -70,6 +70,7 @@ export interface CapacitorDataStorageSqlitePlugin {
   deleteStore(options: capOpenStorageOptions): Promise<capDataStorageResult>;
 
 }
+export type capEncryptionTypes = "no-encryption" | "secret" | "newsecret"
 export interface capOpenStorageOptions {
   /**
    * The storage database name
@@ -91,7 +92,7 @@ export interface capOpenStorageOptions {
    * Set the mode for database encryption
    * ["no-encryption", "secret", "newsecret"]
    */
-  mode?: "no-encryption" | "secret" | "newsecret" // only for ios and android
+  mode?: capEncryptionTypes // only for ios and android
 
 }
 export interface capDataStorageOptions {
